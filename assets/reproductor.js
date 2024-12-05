@@ -84,33 +84,33 @@ function printConsole(id) {
 }
 
 
-
-/**
- * Funcion para que decremente en uno al dar clic en before
- */
-
-
-
-// ------------------------------------
-//  Eventos
-//------------------------------------
-
 //Funcion que le agrega un evento click al boton y que al hacer click en el 
 // boton imprime en consola el id del boton al cual se le dio click.
 btnStop.addEventListener('click', (event) => {
     console.log(event.target.id);
 });
 
+// ------------------------------------
+//  Eventos
+//------------------------------------
+
 mainDiv.innerHTML = createElement();
 btnTem3.addEventListener('click', () => { id = 3; divNowListen.innerHTML = nowListen(3); })
 
 
+//---------------------------------
+// Elementos HTML
+//-----------------------------------
 const songChula = document.getElementById('Chula');
 const songGhost = document.getElementById('Ghost');
 const songCrazy = document.getElementById('Crazy');
 const songTriste = document.getElementById('Triste');
 const songPandora = document.getElementById('Pandora');
 
+
+// ------------------------------------
+//  Eventos
+//------------------------------------
 
 songChula.addEventListener('click', (event) => {
     id = printConsole(event.target.id);
