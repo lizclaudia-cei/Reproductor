@@ -1,0 +1,23 @@
+.Main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.Main-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.Main-img{
+    width: 100px;
+}
+.u-text{
+   
+    font-size: 16;
+    padding: 5px;
+}
