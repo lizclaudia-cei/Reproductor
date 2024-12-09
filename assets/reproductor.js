@@ -4,11 +4,13 @@
 const artists = ['Justin Bieber', 'Demi Lovato', 'Fuerza Regida', 'Carin Leon', 'Beret'];
 const songs = ['Ghost', 'Chula', 'Crazy', 'Triste', 'Pandora'];
 const images = ['./assets/justin_bieber.jpg', './assets/demi_lovato.jpeg', './assets/fuerza_regida.jpg', './assets/carin_leon.jpg', './assets/beret.jpg'];
-
+const urlSongs = ['https://open.spotify.com/track/6I3mqTwhRpn34SLVafSH7G?si=f90b7b12a2b14802','https://open.spotify.com/track/40fgKOnq3hxu4HqEbq40CZ?si=52897717f8c7401e','https://open.spotify.com/track/4zfQER4owi8q6NL8Gg63Ya?si=7f16d6ef4237478c','https://open.spotify.com/track/0smvBTED0Px0rqPf3tobpt?si=68600c1ed74449f8','https://open.spotify.com/track/72Znt55cEoqLSrdXuzENce?si=610ab64aa23a42a8']
 // Elementos del HTMl
 const mainDiv = document.getElementById('mainDiv');
 const btnTem3 = document.getElementById('btnTem3');
 const divNowListen = document.getElementById('divNowListen');
+
+
 
 const btnStop = document.getElementById('btnStop');
 const btnPlay = document.getElementById('btnPlay');
@@ -56,12 +58,19 @@ function nowListen(position) {
     let nowSong = songs[position];
     let nowArtist = artists[position];
     let nowImage = images[position];
-    const newList = [`${nowImage}`, `${nowArtist}`, `${nowSong}`];
+    let nowUrlSong = urlSongs[position];
+    const newList = [`${nowImage}`, `${nowArtist}`, `${nowSong}`,`${nowUrlSong}`];
+    
     console.log(newList);
     return `<div class="Main-box">
     <img src="${newList[0]}" class="Main-img" alt="">
     <p class="u-text">${newList[1]}</p>
-    <p class="u-text">${newList[2]}</p></div>`;
+    <p class="u-text">${newList[2]}</p>
+    <audio id="myAudio" controls>
+    <source src="${newList[3]}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    </div>`;
 }
 
 /**
@@ -108,25 +117,26 @@ const songTriste = document.getElementById('Triste');
 const songPandora = document.getElementById('Pandora');
 
 
+
 // ------------------------------------
 //  Eventos
 //------------------------------------
 
 songChula.addEventListener('click', (event) => {
     id = printConsole(event.target.id);
-})
+});
 songGhost.addEventListener('click', (event) => {
    id = printConsole(event.target.id);
-})
+});
 songCrazy.addEventListener('click', (event) => {
    id = printConsole(event.target.id);
-})
+});
 songTriste.addEventListener('click', (event) => {
     id = printConsole(event.target.id);
-})
+});
 songPandora.addEventListener('click', (event) => {
    id = printConsole(event.target.id);
-})
+});
 
 btnNext.addEventListener('click', ()=>{
     id ++;
@@ -134,7 +144,7 @@ btnNext.addEventListener('click', ()=>{
         id = 0;
     }
     divNowListen.innerHTML = nowListen(id);
-})
+});
 btnBack.addEventListener('click',()=>{
     
     id --;
@@ -142,4 +152,14 @@ btnBack.addEventListener('click',()=>{
         id = songs.length-1;
     }
     divNowListen.innerHTML = nowListen(id);
-} )
+} );
+
+const listen = document.getElementById('myAudio');
+btnPlay.addEventListener('click',()=>{
+    listen.play();gi
+});
+btnStop.addEventListener('click',()=>{
+    listen.pause();
+});
+
+
