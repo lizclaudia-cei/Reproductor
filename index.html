@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductor</title>
-    <link rel="stylesheet" href="./assets/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+  </head>
+  <body>
     <main class="Main">
-        <div class="Main-nowListen" id="divNowListen">
-
+      <div class="Main-nowListen" id="divNowListen">
+        <audio src="./" controls></audio>
+     </div>
+      <div class="Main-content" id="mainDiv"></div>
+      <div class="Footer-buttons">
+        <div id="btnTem3" class="Button">Tema 3</div>
+        <div id="btnBack" class="Button">Anterior</div>
+        <div id="btnPlay" class="Button">Play</div>
+        <div id="btnStop" class="Button">Pausa</div>
+        <div id="btnNext" class="Button">Siguiente</div>
+        <!-- barra de progreso de la cancion -->
+        <div class="audio-br">
+          <div class="audio-bar-line"></div>
         </div>
-        <div class="Main-content" id="mainDiv">
-           
-        </div>
-        <div class="Footer-buttons">
-            <div id="btnTem3" class="Button">Tema 3</div>
-            <div id="btnBack" class="Button">Anterior</div>
-            <div id="btnPlay" class="Button">Play</div>
-            <div id="btnStop" class="Button">Pausa</div>
-            <div id="btnNext" class="Button">Siguiente</div>
-        </div>
+      </div>
     </main>
-   
-    <script src="./assets/reproductor.js"></script>
-</body>
+
+    <script src="./assets/js/reproductor.js"></script>
+  </body>
 </html>
