@@ -71,7 +71,7 @@ function nowNames(arreglo) {
 function createElement() {
     const elements = songs.map((song, index) => {
         return `<div id=${song.title} class="Main-box">
-                <img src="${song.img}" class="Main-img" alt="">
+                <img src="${song.img}" class="Main-img" alt="Imagen del artista ${song.artist}">
                 <p class="u-text">${song.artist}</p>
                 <p class="u-text">${song.title}</p>
             </div>`
@@ -93,7 +93,7 @@ function nowListen(position) {
     let nowUrlSong = songs[position].url;
     const newList = [`${nowImage}`, `${nowArtist}`, `${nowSong}`, `${nowUrlSong}`];
     return `<div class="Main-box">
-    <img src="${newList[0]}" class="Main-img" alt="">
+    <img src="${newList[0]}" class="Main-img" alt="Imagen del artista ${newList[1]}">
     <p class="u-text">${newList[1]}</p>
     <p class="u-text">${newList[2]}</p>
     <audio id="myAudio" controls>
@@ -168,7 +168,10 @@ btnStop.addEventListener('click', (event) => {
 //------------------------------------
 
 mainDiv.innerHTML = createElement();
-btnTem3.addEventListener('click', () => { id = 3; divNowListen.innerHTML = nowListen(3); })
+btnTem3.addEventListener('click', () => { id = 3; divNowListen.innerHTML = nowListen(3); 
+
+    updateActiveClass();
+})
 
 
 //------------------------------------------------------------------------------------------------
