@@ -123,6 +123,36 @@ function printConsole(id) {
 
 }
 
+/**
+ * Funcion para colocar y remover la clase isActive a los elementos
+ * @param {*} event 
+ */
+function handleActiveClass(event) {
+    // Eliminar la clase 'isActive' de todos los elementos
+    document.querySelectorAll('.Main-box').forEach(element => {
+        element.classList.remove('isActive');
+    });
+
+    // Agregar la clase 'isActive' solo al elemento clicado
+    event.currentTarget.classList.add('isActive');
+
+    // Imprimir en consola el id del botón clicado
+    id = printConsole(event.currentTarget.id);
+}
+
+/**
+ * Funcion para actualizar la clase isActive
+ */
+function updateActiveClass() {
+    // Eliminar la clase 'isActive' de todos los elementos
+    document.querySelectorAll('.Main-box').forEach(element => {
+        element.classList.remove('isActive');
+    });
+
+    // Agregar la clase 'isActive' al elemento actual basado en el índice
+    const currentElement = document.getElementById(songs[id].title);
+    currentElement.classList.add('isActive');
+}
 
 //Funcion que le agrega un evento click al boton y que al hacer click en el 
 // boton imprime en consola el id del boton al cual se le dio click.
@@ -156,26 +186,14 @@ const songPandora = document.getElementById('Pandora');
 //  Eventos
 //------------------------------------
 
-songChula.addEventListener('click', (event) => {
-    songChula.classList.toggle('isActive')
-    id = printConsole(event.target.id);
-});
-songGhost.addEventListener('click', (event) => {
-    songGhost.classList.toggle('isActive')
-    id = printConsole(event.target.id);
-});
-songCrazy.addEventListener('click', (event) => {
-    songCrazy.classList.toggle('isActive')
-    id = printConsole(event.target.id);
-});
-songTriste.addEventListener('click', (event) => {
-    songTriste.classList.toggle('isActive')
-    id = printConsole(event.target.id);
-});
-songPandora.addEventListener('click', (event) => {
-    songPandora.classList.toggle('isActive')
-    id = printConsole(event.target.id);
-});
+
+songGhost.addEventListener('click', handleActiveClass);
+songCrazy.addEventListener('click', handleActiveClass);
+songTriste.addEventListener('click', handleActiveClass);
+songPandora.addEventListener('click', handleActiveClass);
+songChula.addEventListener('click', handleActiveClass);
+
+
 
 btnNext.addEventListener('click', () => {
     id++;
@@ -183,6 +201,7 @@ btnNext.addEventListener('click', () => {
         id = 0;
     }
     divNowListen.innerHTML = nowListen(id);
+    updateActiveClass();
 });
 btnBack.addEventListener('click', () => {
     id--;
@@ -190,6 +209,7 @@ btnBack.addEventListener('click', () => {
         id = songs.length - 1;
     }
     divNowListen.innerHTML = nowListen(id);
+    updateActiveClass();
 });
 
 
